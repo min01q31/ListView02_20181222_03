@@ -1,6 +1,8 @@
 package com.iu.listview02_20181222_03.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +60,13 @@ public class StoreAdapter extends ArrayAdapter<Store> {
         storeCallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, data.getPhoneNum(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, data.getPhoneNum()+"에전화를 겁니다.", Toast.LENGTH_SHORT).show();
+
+                Uri uri = Uri.parse(String.format("tel:%s",data.getPhoneNum()));
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+
+                mContext.startActivity(intent);
             }
         });
         return row;

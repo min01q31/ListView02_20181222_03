@@ -14,6 +14,7 @@ public class MainActivity extends BaseActivity {
     ListView storeListView;
     List<Store> storeList = new ArrayList<Store>();
     StoreAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
